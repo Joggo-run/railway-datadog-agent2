@@ -13,3 +13,10 @@ ARG DD_SITE
 
 # Copy datadog.yaml into the container
 COPY datadog.yaml /etc/datadog-agent/datadog.yaml
+
+# Copy the syslog configuration file into the container
+COPY syslog.yaml /etc/datadog-agent/conf.d/syslog.d/
+
+# Expose the StatsD port and the syslog port
+EXPOSE 8125/udp
+EXPOSE 514/udp
